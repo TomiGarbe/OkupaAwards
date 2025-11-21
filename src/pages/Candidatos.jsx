@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Leones from "../assets/okupas/fotos/Leones.png";
-import Fernandez from "../assets/okupas/fotos/Fernandez.png";
+import Fernandez from "../assets/okupas/fotos/Fernandez.jpg";
 import Costantini from "../assets/okupas/fotos/Costantini.png";
 import Darsie from "../assets/okupas/fotos/Darsie.png";
 import Ferrero from "../assets/okupas/fotos/Ferrero.png";
