@@ -1,0 +1,13 @@
+.custom-nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.custom-nav-links .nav-link:hover {
+  color: #ffc862;
+}
+
+footer {
+  color: #797979;
+}
