@@ -39,3 +39,9 @@
 .cookie-btn:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 576px) {
+  .cookie-buttons {
+    gap: 70px;
+  }
+}
