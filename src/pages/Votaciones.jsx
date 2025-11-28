@@ -19,6 +19,7 @@ import SushiGo from '../assets/juegos/SushiGo.jpg';
 import GarbeCele from '../assets/Shippeos/GarbeCele.png';
 import TomiPau from '../assets/Shippeos/TomiPau.png';
 import JoacoCami from '../assets/Shippeos/JoacoCami.png';
+import JoacoSol from '../assets/Shippeos/JoacoSol.png';
 import emailjs from "emailjs-com";
 
 export default function Votaciones() {
@@ -26,11 +27,18 @@ export default function Votaciones() {
   const preguntas = [
     { id: 1,
       texto: "¿Qué multimedia merece ser premiada como Multimedia del Año?",
-      descripcion: "Premio al video, foto o creación digital que se volvió parte del folklore Okupa y quedó inmortalizado en los chats."
+      descripcion: "Premio al video, foto o creación digital que se volvió parte del folklore Okupa y quedó inmortalizado en los chats.",
+      video: "https://www.youtube.com/watch?v=F_FNlhmkQs0"
     },
     { id: 2,
       texto: "¿Cuál de estos momentos merece ganar el premio a Fail / Momento del Año?",
-      descripcion: "Aquel video que nos hace estallar de risa cada vez que lo vemos"
+      descripcion: 
+      "1) Joaco se queda dormido manejando y choca en plena Circunvalación\n" +
+      "2) Santi entra a un súper y al salir descubre que su vidrio trasero está estallado sin explicación\n" +
+      "3) A Santi lo amenazan en un barrio picante mientras solo intentaba volver a su casa\n" +
+      "4) Garbe cuenta, en plena avenida y mientras todos gritaban, que se besó a una chica en la Mujer Urbana\n" +
+      "5) Tomi se queda un mes y medio sin heladera sobreviviendo como podía\n" +
+      "6) Augusto recibe una multa por ir a 121 en una zona de 110, irónicamente siendo siempre el que maneja más lento del grupo.",
     },
     { id: 3,
       texto: "¿Quién merece el premio “Desaparecido del Año 2025”?",
@@ -54,7 +62,8 @@ export default function Votaciones() {
     },
     { id: 8,
       texto: "¿Cuál es tu audio favorito?",
-      descripcion: "Reconocimiento al mensaje de voz más icónico, viral, repetido o traumáticamente inolvidable que circuló en el grupo."
+      descripcion: "Reconocimiento al mensaje de voz más icónico, viral, repetido o traumáticamente inolvidable que circuló en el grupo.",
+      video: "https://www.youtube.com/watch?v=P0ZPBJQofqA"
     },
     { id: 9,
       texto: "¿Quién fue el “Quejoso del Año 2025”?",
@@ -93,17 +102,19 @@ export default function Votaciones() {
   ];
 
   const Multimedia = [
-    { nombre: "Lautaro Leones", img: Leones },
-    { nombre: "Tomas Fernandez", img: Fernandez },
-    { nombre: "Augusto Costantini", img: Costantini },
-    { nombre: "Joaquin Darsie", img: Darsie }
+    { nombre: "“Augusto no la puede meter”", img: Costantini },
+    { nombre: "“Te la saco?”", img: Darsie },
+    { nombre: "“Gorda de mierda”", img: Costantini },
+    { nombre: "“Santi Fail tras Fail”", img: Reinaldi }
   ];
 
   const Momentos = [
-    { nombre: "Lautaro Leones", img: Leones },
-    { nombre: "Tomas Fernandez", img: Fernandez },
-    { nombre: "Augusto Costantini", img: Costantini },
-    { nombre: "Joaquin Darsie", img: Darsie }
+    { nombre: "Choque de Joako", img: Darsie },
+    { nombre: "Vidrio explosivo de Santi", img: Reinaldi },
+    { nombre: "Historia de beso en la Mujer Urbana", img: Garbellotto },
+    { nombre: "Heladera muerta de Tomi", img: Fernandez },
+    { nombre: "Multa a Augusto por velocidad", img: Costantini },
+    { nombre: "Amenaza a Santi por villeros", img: Reinaldi }
   ];
 
   const Juegos = [
@@ -115,18 +126,19 @@ export default function Votaciones() {
     { nombre: "Sushi Go", img: SushiGo }
   ];
 
-  const Secciones = [
-    { nombre: "Lunes de Foto Motivacional", img: Leones },
-    { nombre: "Martes de Confesiones", img: Fernandez },
-    { nombre: "Miércoles de Consejo", img: Costantini },
-    { nombre: "Jueves de Encuesta", img: Darsie }
+  const Audio = [
+    { nombre: "“Sigo aca cagado de calor”", img: Reinaldi },
+    { nombre: "“Me estoy cagando”", img: Pages },
+    { nombre: "“Google maps de mierda”", img: Fernandez },
+    { nombre: "“Matense”", img: Reinaldi },
+    { nombre: "“Son todos Downs”", img: Costantini }
   ];
 
   const Shippeos = [
     { nombre: "Tomás Garbellotto y Cele Chaven", img: GarbeCele },
     { nombre: "Tomás Fernández y Pau Oberti", img: TomiPau },
     { nombre: "Joaquín Darsie y Cami Yabale", img: JoacoCami },
-    { nombre: "Joaquín Darsie y Sol (su empleada)", img: Darsie }
+    { nombre: "Joaquín Darsie y Sol (su empleada)", img: JoacoSol }
   ];
 
   const opcionesPorPregunta = {
@@ -137,9 +149,9 @@ export default function Votaciones() {
     5: Okupas,
     6: Okupas,
     7: Juegos,
-    8: Secciones,
-    9: SinFerrero,
-    10: SinFerrero,
+    8: Audio,
+    9: Okupas,
+    10: Okupas,
     11: Shippeos,
   };
 
@@ -206,6 +218,17 @@ export default function Votaciones() {
               </Card.Title>
               <h1 className="votaciones-text">{preguntas[actual].texto}</h1>
               <p className="votaciones-description">{preguntas[actual].descripcion}</p>
+              {preguntas[actual].video && (
+                <div className="video-container">
+                  <iframe
+                    className="votaciones-video"
+                    src={preguntas[actual].video.replace("watch?v=", "embed/")}
+                    title="YouTube video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              )}
 
               <div className="opciones-mosaico">
                 {(opcionesPorPregunta[preguntas[actual].id] || []).map((op, i) => (
